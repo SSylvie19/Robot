@@ -13,7 +13,7 @@ void RobotMap::setDimension(int n) {
     }
     size = n;
     grid.assign(size, std::vector<bool>(size, false));
-    robotPosition = {0, 0}; // Reset position to origin
+    robotPosition = {0, 0};
 }
 
 bool RobotMap::isWithinBounds(Coordinate pos) {
@@ -43,19 +43,42 @@ void RobotMap::lineTo(Coordinate targetPosition) {
     int sy = (y0 < y1) ? 1 : -1;
     int err = dx - dy;
 
-    while (true) {
-        grid[y0][x0] = true; // Mark cell
+    grid[y0][x0] = true;
 
-        if (x0 == x1 && y0 == y1) break;
-
-        int e2 = 2 * err;
-        if (e2 > -dy) {
-            err -= dy;
+    if (dx == dy) {
+        while (x0 != x1) {
             x0 += sx;
-        }
-        if (e2 < dx) {
-            err += dx;
             y0 += sy;
+            grid[y0][x0] = true;
+        }
+        robotPosition = targetPosition;
+        return;
+    }
+
+    while (x0 != x1 || y0 != y1) {
+        int e2 = 2 * err;
+        if (dy > dx) {
+            if (e2 > -dy) {
+                err -= dy;
+                x0 += sx;
+                grid[y0][x0] = true;
+            }
+            if (e2 < dx) {
+                err += dx;
+                y0 += sy;
+                grid[y0][x0] = true;
+            }
+        } else {
+            if (e2 < dx) {
+                err += dx;
+                y0 += sy;
+                grid[y0][x0] = true;
+            }
+            if (e2 > -dy) {
+                err -= dy;
+                x0 += sx;
+                grid[y0][x0] = true;
+            }
         }
     }
 

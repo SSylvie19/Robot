@@ -21,7 +21,7 @@ private:
     int size;
     std::vector<std::vector<bool>> grid;
     Coordinate robotPosition;
-    
+
     bool isWithinBounds(Coordinate pos);
 };
 

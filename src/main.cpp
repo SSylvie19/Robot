@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 
     while (std::getline(file, line)) {
         lineNum++;
-        
+
         if (line.empty()) continue;
 
         std::string sanitized = sanitizeLine(line);
