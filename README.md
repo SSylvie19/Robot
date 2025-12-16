@@ -1,5 +1,6 @@
 # Build project
 ```
+git submodule update --init --recursive
 cmake -S . -B build
 cmake --build build
 ```
@@ -13,9 +14,7 @@ cmake --build build
 ```
 .\build\Debug\robot.exe commands.txt
 ```
-
-# Example result
-## Input:
+### Input:
 ```
 DIMENSION 5
 MOVE_TO 1,1
@@ -23,11 +22,16 @@ LINE_TO 3,3
 LINE_TO 3,2
 ```
 
-## Output:
+### Output:
 ```
 . . . . . 
 . + . . .
 . . + + .
 . . . + .
 . . . . .
+```
+
+# Run unittest
+```
+.\build\Debug\robot_test.exe
 ```
