@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_library(robot_core STATIC
     src/robot_map.cpp
     src/command.cpp
+    src/command_parser.cpp
 )
 
 # Include directories for the library
@@ -28,6 +29,7 @@ add_executable(robot_test
     tests/main.cpp
     tests/unittest/robot_map_test.cpp
     tests/unittest/command_test.cpp
+    tests/unittest/command_parser_test.cpp
 )
 
 # Link against the core library and Google Test

@@ -16,7 +16,7 @@ void RobotMap::setDimension(int n) {
     robotPosition = {0, 0};
 }
 
-bool RobotMap::isWithinBounds(Coordinate pos) {
+bool RobotMap::isWithinBounds(Coordinate pos) const {
     return pos.x >= 0 && pos.x < size && pos.y >= 0 && pos.y < size;
 }
 
@@ -94,6 +94,15 @@ void RobotMap::printMap() {
     }
 }
 
-int RobotMap::getSize() const {
+int RobotMap::getSize() {
     return size;
+}
+
+bool RobotMap::isMarked(int x, int y) {
+    if (!isWithinBounds({x, y})) return false;
+    return grid[y][x];
+}
+
+Coordinate RobotMap::getPosition() {
+    return robotPosition;
 }

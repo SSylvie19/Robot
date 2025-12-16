@@ -15,14 +15,16 @@ public:
     void moveTo(Coordinate newPosition);
     void lineTo(Coordinate targetPosition);
     void printMap();
-    int getSize() const;
+    int getSize();
+    bool isMarked(int x, int y);
+    Coordinate getPosition();
 
 private:
     int size;
     std::vector<std::vector<bool>> grid;
     Coordinate robotPosition;
 
-    bool isWithinBounds(Coordinate pos);
+    bool isWithinBounds(Coordinate pos) const;
 };
 
 #endif // ROBOT_MAP_H
