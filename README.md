@@ -36,6 +36,22 @@ LINE_TO 3,2
 .\build\Debug\robot_test.exe
 ```
 
+# Core logic
+- The core logic of this code is the `Bresenham's line algorithm` that i find [here](https://www.geeksforgeeks.org/dsa/bresenhams-line-generation-algorithm/) 
+- This code does not handle all cases. In the comment of the implementation:
+```
+// C++ program for Bresenham’s Line Generation
+// Assumptions :
+// 1) Line is drawn from left to right.
+// 2) x1 < x2 and y1 < y2
+// 3) Slope of the line is between 0 and 1.
+//    We draw a line from lower left to upper
+//    right.
+```
+- I'm only improve this implementation that support other cases that work with:
+--- All cases of start and end coordinate
+--- Other slope cases (The line near horizontal or vertical)
+
 # Complexity
 ### Time complexity
 - The MOVE_TO command only update position so it will take O(1)
