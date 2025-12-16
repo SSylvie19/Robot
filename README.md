@@ -49,8 +49,8 @@ LINE_TO 3,2
 //    right.
 ```
 - I'm only improve this implementation that support other cases that work with:
---- All cases of start and end coordinate
---- Other slope cases (The line near horizontal or vertical)
+    - All cases of start and end coordinate
+    - Other slope cases (The line near horizontal or vertical)
 
 # Complexity
 ### Time complexity
