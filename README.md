@@ -1,6 +1,7 @@
 # Build project
 ```
-cmake -S . -B build && cmake --build build
+cmake -S . -B build
+cmake --build build
 ```
 
 # Run project
